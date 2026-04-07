@@ -23,18 +23,3 @@ This repository is aimed at **practical learning** in pentesting, HTTP request a
 
 ---
 
-## Example Python Script
-```python
-import requests
-import os
-
-SESSION_TOKEN = os.environ.get("SESSION_TOKEN")  # Use a secure token in .env
-HEADERS = {"Cookie": f"__Secure-next-auth.session-token={SESSION_TOKEN}"}
-BASE_URL = "https://api.example.com/entries"
-
-# List entries
-resp = requests.get(BASE_URL, headers=HEADERS)
-entries = resp.json()
-
-for entry in entries:
-    print(f"ID: {entry['id']}, Category: {entry['category']}, Value: {entry['value']}, Desc: {entry['description']}")
